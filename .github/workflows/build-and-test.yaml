@@ -1,0 +1,27 @@
+name: Linux build
+
+on: [pull_request]
+
+jobs:
+  build-cpp-linux:
+    name: build-cpp-linux
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: read
+    container:
+      image: ghcr.io/bignacio/docker-images/ubuntu-cpp-25.10:1
+      credentials:
+        username: bignacio
+        password: ${{ secrets.GITHUB_TOKEN }}
+    strategy:
+      matrix:
+        compiler: [g++-15, clang++-21]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build and test
+      env:
+        CXX: ${{matrix.compiler}}
+      run: ci-scripts/build-and-test-linux.sh

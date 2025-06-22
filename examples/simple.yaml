@@ -1,0 +1,41 @@
+prompt: "> "
+
+initial_message: "Welcome to my custom REPL!"
+input_note: "Type a command"
+alt_help_cmd: "help"
+alt_help_desc: "Show available commands"
+alt_exit_cmd: "exit"
+alt_exit_desc: "Exit the REPL."
+
+# List of commands available in the REPL.
+commands:
+  - name: list
+    description: "Lists files in the current directory. Usage: list [directory]"
+    type: single
+    exec: "ls"
+  - name: environment
+    description: "Lists all environment variables"
+    type: single
+    exec: "env"
+  - name: ot
+    description: "Test stdout and stderr. Ah, end shell scripts"
+    type: shell
+    exec: |
+      #!/bin/bash
+
+      echo "received args $@"
+
+      for arg in "$@"; do
+        echo "arg: $arg"
+      done
+      sleep 2
+      echo "it's working"
+      sleep 2
+      echo "and this goes to stderr" 1>&2
+      sleep 2
+      echo "bye"
+      sleep 2
+  - name: jqt
+    description: "jq test"
+    type: "shell"
+    exec: "echo '{\"a\": 1, \"b\": 2}' | jq ."
