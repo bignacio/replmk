@@ -1,12 +1,17 @@
 # REPLmk
+[![Build](https://github.com/bira/replmk/actions/workflows/build.yml/badge.svg)]
+
 Friendly custom REPL building tool
 
 !! Beta version !!
+
+![image](assets/replmk1.png)
 
 ## Features
 
 - Custom commands definitions via configuration files
 - Save and restore command and output history
+
 
 ## Usage
 
@@ -50,6 +55,11 @@ You can also specify a file to save and load the command history as well as the 
 -o, --output-history-file arg -> Optional path to a file where to save the output history
 ```
 
+If not specified, the default values for those arguments are:
+
+- Command history file: `~/.replmk_history`
+- Output history file: `~/.replmk_output_history`
+
 ## Installation from source
 
 Requirements:
@@ -65,3 +75,13 @@ make -C build
 ```
 
 The binary will be in `build/src/replmk`
+
+## Dependencies
+
+Many thanks to the people who created the great libraries and tools in use by this project. Here is a list of them:
+
+- [doctest](https://github.com/doctest/doctest)
+- [yaml-cpp](https://github.com/jbeder/yaml-cpp.git)
+- [cxxopts](https://github.com/jarro2783/cxxopts.git)
+- [ftxui](https://github.com/ArthurSonzogni/FTXUI.git)
+- and of course, [CMake](https://cmake.org/) and your favourite C++ Compiler
