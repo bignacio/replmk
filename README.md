@@ -1,5 +1,4 @@
 # REPLmk
-[![Build](https://github.com/bira/replmk/actions/workflows/build.yml/badge.svg)]
 
 Friendly custom REPL building tool
 
