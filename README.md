@@ -1,6 +1,6 @@
 # REPLmk
 
-Friendly custom REPL building tool
+Friendly custom TUI REPL (Read-Eval-Print Loop) building tool.
 
 !! Beta version !!
 
